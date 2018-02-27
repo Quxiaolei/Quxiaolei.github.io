@@ -5,7 +5,7 @@
 - [使用工具进行APP打包和分发](#%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7%E8%BF%9B%E8%A1%8Capp%E6%89%93%E5%8C%85%E5%92%8C%E5%88%86%E5%8F%91)
     - [常见的xcodebuild命令](#%E5%B8%B8%E8%A7%81%E7%9A%84xcodebuild%E5%91%BD%E4%BB%A4)
         - [编译打包](#%E7%BC%96%E8%AF%91%E6%89%93%E5%8C%85)
-        - [导出ipa 包](#%E5%AF%BC%E5%87%BAipa-%E5%8C%85)
+        - [导出ipa包](#%E5%AF%BC%E5%87%BAipa%E5%8C%85)
         - [其他常见命令](#%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4)
     - [IPA包的处理](#ipa%E5%8C%85%E7%9A%84%E5%A4%84%E7%90%86)
     - [使用xcrun命令重签名生成新的IPA包](#%E4%BD%BF%E7%94%A8xcrun%E5%91%BD%E4%BB%A4%E9%87%8D%E7%AD%BE%E5%90%8D%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84ipa%E5%8C%85)
@@ -35,7 +35,7 @@ xcodebuild -workspace workspacename -scheme schemename [-destination destination
 > 构建project工程时,可以指定对应的target.不指定时默认为第一个.  
 构建workspace工程时,必须指定workspace和scheme参数.
 
-### 导出ipa 包
+### 导出ipa包
 
 从编译过的archive包中导出ipa包
 
@@ -102,10 +102,15 @@ ${altoolpath} --upload-app -f ${file} -u ${username} [-p ${password}]
 > source ~/.bash_profile
 > ```
 
+还可以使用命令行上传至蒲公英和fir.im平台.
+
+```sh
+fir p '${ipaPath}' -T '${firToken}'
+```
+
 参考:
 
 * [通过altool上传App的二进制文件](http://help.apple.com/itc/apploader/#/apdATD1E53-D1E1A1303-D1E53A1126)
-
 * [Xcode一键发布到AppStore(使用Automator和altool)](http://blog.csdn.net/gukong/article/details/51578618)  
 [workflow和BuildScript下载](https://quxiaolei.github.io/XLLog/resources/Xcode%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%88%B0AppStore%28%E4%BD%BF%E7%94%A8Automator%E5%92%8Caltool%29)
 
