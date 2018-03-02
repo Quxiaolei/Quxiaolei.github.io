@@ -112,7 +112,7 @@ fir p '${ipaPath}' -T '${firToken}'
 
 * [通过altool上传App的二进制文件](http://help.apple.com/itc/apploader/#/apdATD1E53-D1E1A1303-D1E53A1126)
 * [Xcode一键发布到AppStore(使用Automator和altool)](http://blog.csdn.net/gukong/article/details/51578618)  
-[workflow和BuildScript下载](https://quxiaolei.github.io/XLLog/resources/Xcode%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%88%B0AppStore%28%E4%BD%BF%E7%94%A8Automator%E5%92%8Caltool%29)
+[workflow和BuildScript下载](https://github.com/Quxiaolei/Quxiaolei.github.io/tree/master/resources/Xcode%E4%B8%80%E9%94%AE%E5%8F%91%E5%B8%83%E5%88%B0AppStore(%E4%BD%BF%E7%94%A8Automator%E5%92%8Caltool))
 
 ## 使用xcrun命令重签名生成新的IPA包
 
@@ -129,5 +129,8 @@ fir p '${ipaPath}' -T '${firToken}'
 ## 其他相关资料
 
 * [使用python脚本实现一键全自动打包](https://github.com/Quxiaolei/iOSAutoPackage)
+* [iOS项目自动打包脚本](https://github.com/hades0918/ipapy)
 * [关于持续集成打包平台的Jenkins配置和构建脚本实现细节](http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins-details/)
+* [iOS：使用jenkins实现xcode自动打包](http://blog.csdn.net/u014641783/article/details/50866196)
+* [iOS Shell脚本自动构建打包、发布、部署jenkins](https://www.jianshu.com/p/ad4a9c40ae59)
 * [iOS--脚本配置Xcode Project（打包）](http://blog.csdn.net/chsadin/article/details/61192923)
