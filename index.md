@@ -15,3 +15,9 @@
 1. [Objective-C开发编码规范](/Objective-C开发编码规范.md)
 1. [深拷贝和浅拷贝](/深拷贝和浅拷贝.md)
 1. [OC中常见的几种变量类型](/OC中常见的几种变量类型.md)
+
+## 其他资料
+
+1. [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)
+2. [《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545)
+3. [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/~sgtatham/bugs-cn.html)
