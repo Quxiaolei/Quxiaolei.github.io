@@ -77,7 +77,7 @@ xcodebuild clean -workspace ${TARGET_NAME}.xcworkspace -scheme ${TARGET_NAME} -c
 
 * [xcodebuild官方文档](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcodebuild.1.html)
 * [xcodebuild命令简单使用](https://www.jianshu.com/p/88d9f2e57004)
-* [xctool(facebook)](https://github.com/facebook/xctool)
+* [xctool(facebook)](https://github.com/facebook/xctool)  
 [Facebook xctool 的使用](https://www.jianshu.com/p/23646d85cfa1)
 * [PlistBuddy简单使用](https://www.jianshu.com/p/2167f755c47e)
 
@@ -129,8 +129,11 @@ fir p '${ipaPath}' -T '${firToken}'
 ## 其他相关资料
 
 * [使用python脚本实现一键全自动打包](https://github.com/Quxiaolei/iOSAutoPackage)
+* [iOS自动打包并发布脚本](https://github.com/carya/Util)
 * [iOS项目自动打包脚本](https://github.com/hades0918/ipapy)
 * [关于持续集成打包平台的Jenkins配置和构建脚本实现细节](http://debugtalk.com/post/iOS-Android-Packing-with-Jenkins-details/)
 * [iOS：使用jenkins实现xcode自动打包](http://blog.csdn.net/u014641783/article/details/50866196)
 * [iOS Shell脚本自动构建打包、发布、部署jenkins](https://www.jianshu.com/p/ad4a9c40ae59)
 * [iOS--脚本配置Xcode Project（打包）](http://blog.csdn.net/chsadin/article/details/61192923)
+* [xctool(facebook)](https://github.com/facebook/xctool)
+* [fastlane](https://github.com/fastlane/fastlane)
