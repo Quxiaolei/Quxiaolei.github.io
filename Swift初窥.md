@@ -2,128 +2,133 @@
 
 <!-- TOC -->
 
-- [Swift初窥](#swift%E5%88%9D%E7%AA%A5)
-    - [基本内容](#%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9)
-        - [常量和变量](#%E5%B8%B8%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F)
-        - [类型标注](#%E7%B1%BB%E5%9E%8B%E6%A0%87%E6%B3%A8)
-        - [类型安全和类型推断](#%E7%B1%BB%E5%9E%8B%E5%AE%89%E5%85%A8%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD)
-        - [类型别名](#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D)
-        - [元组](#%E5%85%83%E7%BB%84)
-        - [可选型](#%E5%8F%AF%E9%80%89%E5%9E%8B)
-        - [断言和先决条件](#%E6%96%AD%E8%A8%80%E5%92%8C%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6)
-    - [基本运算符](#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [赋值运算符](#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [算术运算符](#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [比较运算符](#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [合并空值运算符(`a ?? b`)](#%E5%90%88%E5%B9%B6%E7%A9%BA%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6a-b)
-        - [区间运算符](#%E5%8C%BA%E9%97%B4%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [逻辑运算符](#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6)
-    - [字符串和字符](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AD%97%E7%AC%A6)
-    - [集合类型](#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B)
-    - [控制流](#%E6%8E%A7%E5%88%B6%E6%B5%81)
-        - [循环遍历](#%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86)
-        - [条件语句](#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5)
-        - [控制转移语句](#%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E8%AF%AD%E5%8F%A5)
-    - [函数](#%E5%87%BD%E6%95%B0)
-        - [函数类型](#%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B)
-        - [参数列表](#%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8)
-        - [返回值](#%E8%BF%94%E5%9B%9E%E5%80%BC)
-    - [闭包](#%E9%97%AD%E5%8C%85)
-        - [闭包表达式](#%E9%97%AD%E5%8C%85%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [尾随闭包](#%E5%B0%BE%E9%9A%8F%E9%97%AD%E5%8C%85)
-        - [捕获值](#%E6%8D%95%E8%8E%B7%E5%80%BC)
-        - [逃逸闭包](#%E9%80%83%E9%80%B8%E9%97%AD%E5%8C%85)
-        - [自动闭包](#%E8%87%AA%E5%8A%A8%E9%97%AD%E5%8C%85)
-    - [枚举](#%E6%9E%9A%E4%B8%BE)
-        - [枚举值](#%E6%9E%9A%E4%B8%BE%E5%80%BC)
-        - [关联值](#%E5%85%B3%E8%81%94%E5%80%BC)
-        - [原始值](#%E5%8E%9F%E5%A7%8B%E5%80%BC)
-        - [递归枚举](#%E9%80%92%E5%BD%92%E6%9E%9A%E4%B8%BE)
-    - [类和结构体](#%E7%B1%BB%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93)
-    - [属性](#%E5%B1%9E%E6%80%A7)
-        - [存储属性](#%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7)
-        - [延迟存储属性](#%E5%BB%B6%E8%BF%9F%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7)
-        - [计算属性](#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7)
-        - [只读计算属性](#%E5%8F%AA%E8%AF%BB%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7)
-        - [属性观察器](#%E5%B1%9E%E6%80%A7%E8%A7%82%E5%AF%9F%E5%99%A8)
-        - [类型属性](#%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7)
-    - [方法](#%E6%96%B9%E6%B3%95)
-        - [实例方法](#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95)
-        - [类型方法](#%E7%B1%BB%E5%9E%8B%E6%96%B9%E6%B3%95)
-    - [下标](#%E4%B8%8B%E6%A0%87)
-    - [继承](#%E7%BB%A7%E6%89%BF)
-    - [构造过程](#%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B)
-        - [存储属性初始赋值](#%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E5%88%9D%E5%A7%8B%E8%B5%8B%E5%80%BC)
-        - [构造器](#%E6%9E%84%E9%80%A0%E5%99%A8)
-        - [两段式构造过程](#%E4%B8%A4%E6%AE%B5%E5%BC%8F%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B)
-        - [构造器的继承和重写](#%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%A7%E6%89%BF%E5%92%8C%E9%87%8D%E5%86%99)
-        - [构造器的自动继承](#%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E8%87%AA%E5%8A%A8%E7%BB%A7%E6%89%BF)
-        - [可失败构造器](#%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8)
-        - [必要构造器](#%E5%BF%85%E8%A6%81%E6%9E%84%E9%80%A0%E5%99%A8)
-    - [析构过程](#%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B)
-    - [自动引用计数](#%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0)
-        - [`循环强引用`](#%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8)
-        - [弱引用](#%E5%BC%B1%E5%BC%95%E7%94%A8)
-        - [无主引用](#%E6%97%A0%E4%B8%BB%E5%BC%95%E7%94%A8)
-        - [闭包引起的循环强引用](#%E9%97%AD%E5%8C%85%E5%BC%95%E8%B5%B7%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8)
-    - [可选链式调用](#%E5%8F%AF%E9%80%89%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8)
-    - [错误处理](#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86)
-        - [使用`throwing`函数传递参数](#%E4%BD%BF%E7%94%A8throwing%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0)
-        - [使用`Do-Catch`处理错误](#%E4%BD%BF%E7%94%A8do-catch%E5%A4%84%E7%90%86%E9%94%99%E8%AF%AF)
-        - [将错误转换为可选值](#%E5%B0%86%E9%94%99%E8%AF%AF%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8F%AF%E9%80%89%E5%80%BC)
-        - [禁用错误传递](#%E7%A6%81%E7%94%A8%E9%94%99%E8%AF%AF%E4%BC%A0%E9%80%92)
-        - [指定清理操作](#%E6%8C%87%E5%AE%9A%E6%B8%85%E7%90%86%E6%93%8D%E4%BD%9C)
-    - [常见的类型处理](#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%A4%84%E7%90%86)
-        - [类型转换](#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
-        - [嵌套类型](#%E5%B5%8C%E5%A5%97%E7%B1%BB%E5%9E%8B)
-    - [扩展](#%E6%89%A9%E5%B1%95)
-    - [协议](#%E5%8D%8F%E8%AE%AE)
-    - [泛型](#%E6%B3%9B%E5%9E%8B)
-        - [类型形式参数](#%E7%B1%BB%E5%9E%8B%E5%BD%A2%E5%BC%8F%E5%8F%82%E6%95%B0)
-        - [泛型类型](#%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B)
-        - [类型约束](#%E7%B1%BB%E5%9E%8B%E7%BA%A6%E6%9D%9F)
-        - [关联类型](#%E5%85%B3%E8%81%94%E7%B1%BB%E5%9E%8B)
-        - [泛型下标](#%E6%B3%9B%E5%9E%8B%E4%B8%8B%E6%A0%87)
-    - [访问控制](#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6)
-        - [访问级别](#%E8%AE%BF%E9%97%AE%E7%BA%A7%E5%88%AB)
-        - [各种类型的访问控制](#%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6)
-    - [高级运算符](#%E9%AB%98%E7%BA%A7%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [位运算符](#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [溢出运算符](#%E6%BA%A2%E5%87%BA%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [优先级和结合性](#%E4%BC%98%E5%85%88%E7%BA%A7%E5%92%8C%E7%BB%93%E5%90%88%E6%80%A7)
-        - [运算符函数](#%E8%BF%90%E7%AE%97%E7%AC%A6%E5%87%BD%E6%95%B0)
-    - [语法结构](#%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84)
-    - [类型](#%E7%B1%BB%E5%9E%8B)
-        - [常见的几种类型](#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E7%B1%BB%E5%9E%8B)
-    - [表达式](#%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [前缀/后缀表达式](#%E5%89%8D%E7%BC%80%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [二元表达式](#%E4%BA%8C%E5%85%83%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [三元条件运算符](#%E4%B8%89%E5%85%83%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [类型转换运算符](#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%BF%90%E7%AE%97%E7%AC%A6)
-        - [字面量表达式](#%E5%AD%97%E9%9D%A2%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [Self表达式和父类表达式](#self%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E7%88%B6%E7%B1%BB%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [闭包表达式](#%E9%97%AD%E5%8C%85%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [可选链表表达式和强制取值表达式](#%E5%8F%AF%E9%80%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%BC%BA%E5%88%B6%E5%8F%96%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-    - [语句](#%E8%AF%AD%E5%8F%A5)
-        - [常见的几种语句](#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AF%AD%E5%8F%A5)
-        - [编译器控制语句](#%E7%BC%96%E8%AF%91%E5%99%A8%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5)
-    - [声明](#%E5%A3%B0%E6%98%8E)
-        - [常见的声明关键词](#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A3%B0%E6%98%8E%E5%85%B3%E9%94%AE%E8%AF%8D)
-    - [特性](#%E7%89%B9%E6%80%A7)
-        - [声明特性](#%E5%A3%B0%E6%98%8E%E7%89%B9%E6%80%A7)
-        - [类型特性](#%E7%B1%BB%E5%9E%8B%E7%89%B9%E6%80%A7)
-    - [模式](#%E6%A8%A1%E5%BC%8F)
-        - [通配符模式](#%E9%80%9A%E9%85%8D%E7%AC%A6%E6%A8%A1%E5%BC%8F)
-        - [标识符模式](#%E6%A0%87%E8%AF%86%E7%AC%A6%E6%A8%A1%E5%BC%8F)
-        - [值绑定模式](#%E5%80%BC%E7%BB%91%E5%AE%9A%E6%A8%A1%E5%BC%8F)
-        - [元组模式](#%E5%85%83%E7%BB%84%E6%A8%A1%E5%BC%8F)
-        - [枚举用例模式](#%E6%9E%9A%E4%B8%BE%E7%94%A8%E4%BE%8B%E6%A8%A1%E5%BC%8F)
-        - [可选模式](#%E5%8F%AF%E9%80%89%E6%A8%A1%E5%BC%8F)
-        - [表达式模式](#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A8%A1%E5%BC%8F)
-        - [类型转换模式](#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%A8%A1%E5%BC%8F)
-    - [Swift和Objective-C对比](#swift%E5%92%8Cobjective-c%E5%AF%B9%E6%AF%94)
-        - [两种语言的区别](#%E4%B8%A4%E7%A7%8D%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8C%BA%E5%88%AB)
-        - [两种语言的混编](#%E4%B8%A4%E7%A7%8D%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B7%B7%E7%BC%96)
+- [Swift初窥](#swift初窥)
+    - [基本内容](#基本内容)
+        - [常量和变量](#常量和变量)
+        - [类型标注](#类型标注)
+        - [类型安全和类型推断](#类型安全和类型推断)
+        - [类型别名](#类型别名)
+        - [元组](#元组)
+        - [可选型](#可选型)
+        - [断言和先决条件](#断言和先决条件)
+    - [基本运算符](#基本运算符)
+        - [赋值运算符](#赋值运算符)
+        - [算术运算符](#算术运算符)
+        - [比较运算符](#比较运算符)
+        - [合并空值运算符(`a ?? b`)](#合并空值运算符a--b)
+        - [区间运算符](#区间运算符)
+        - [逻辑运算符](#逻辑运算符)
+    - [字符串和字符](#字符串和字符)
+    - [集合类型](#集合类型)
+    - [控制流](#控制流)
+        - [循环遍历](#循环遍历)
+        - [条件语句](#条件语句)
+        - [控制转移语句](#控制转移语句)
+    - [函数](#函数)
+        - [函数类型](#函数类型)
+        - [参数列表](#参数列表)
+        - [返回值](#返回值)
+    - [闭包](#闭包)
+        - [闭包表达式](#闭包表达式)
+        - [尾随闭包](#尾随闭包)
+        - [捕获值](#捕获值)
+        - [逃逸闭包](#逃逸闭包)
+        - [自动闭包](#自动闭包)
+    - [枚举](#枚举)
+        - [枚举值](#枚举值)
+        - [关联值](#关联值)
+        - [原始值](#原始值)
+        - [递归枚举](#递归枚举)
+    - [类和结构体](#类和结构体)
+    - [属性](#属性)
+        - [存储属性](#存储属性)
+        - [延迟存储属性](#延迟存储属性)
+        - [计算属性](#计算属性)
+        - [只读计算属性](#只读计算属性)
+        - [属性观察器](#属性观察器)
+        - [类型属性](#类型属性)
+    - [方法](#方法)
+        - [实例方法](#实例方法)
+        - [类型方法](#类型方法)
+    - [下标](#下标)
+    - [继承](#继承)
+    - [构造过程](#构造过程)
+        - [存储属性初始赋值](#存储属性初始赋值)
+        - [构造器](#构造器)
+        - [两段式构造过程](#两段式构造过程)
+        - [构造器的继承和重写](#构造器的继承和重写)
+        - [构造器的自动继承](#构造器的自动继承)
+        - [可失败构造器](#可失败构造器)
+        - [必要构造器](#必要构造器)
+    - [析构过程](#析构过程)
+    - [自动引用计数](#自动引用计数)
+        - [`循环强引用`](#循环强引用)
+        - [弱引用](#弱引用)
+        - [无主引用](#无主引用)
+        - [闭包引起的循环强引用](#闭包引起的循环强引用)
+    - [可选链式调用](#可选链式调用)
+    - [错误处理](#错误处理)
+        - [使用`throwing`函数传递参数](#使用throwing函数传递参数)
+        - [使用`Do-Catch`处理错误](#使用do-catch处理错误)
+        - [将错误转换为可选值](#将错误转换为可选值)
+        - [禁用错误传递](#禁用错误传递)
+        - [指定清理操作](#指定清理操作)
+    - [常见的类型处理](#常见的类型处理)
+        - [类型转换](#类型转换)
+        - [嵌套类型](#嵌套类型)
+    - [扩展](#扩展)
+    - [协议](#协议)
+    - [泛型](#泛型)
+        - [类型形式参数](#类型形式参数)
+        - [泛型类型](#泛型类型)
+        - [类型约束](#类型约束)
+        - [关联类型](#关联类型)
+        - [泛型下标](#泛型下标)
+    - [访问控制](#访问控制)
+        - [访问级别](#访问级别)
+        - [各种类型的访问控制](#各种类型的访问控制)
+    - [高级运算符](#高级运算符)
+        - [位运算符](#位运算符)
+        - [溢出运算符](#溢出运算符)
+        - [优先级和结合性](#优先级和结合性)
+        - [运算符函数](#运算符函数)
+    - [语法结构](#语法结构)
+    - [类型](#类型)
+        - [常见的几种类型](#常见的几种类型)
+    - [表达式](#表达式)
+        - [前缀/后缀表达式](#前缀后缀表达式)
+        - [二元表达式](#二元表达式)
+        - [三元条件运算符](#三元条件运算符)
+        - [类型转换运算符](#类型转换运算符)
+        - [字面量表达式](#字面量表达式)
+        - [Self表达式和父类表达式](#self表达式和父类表达式)
+        - [闭包表达式](#闭包表达式-1)
+        - [可选链表表达式和强制取值表达式](#可选链表表达式和强制取值表达式)
+    - [语句](#语句)
+        - [常见的几种语句](#常见的几种语句)
+        - [编译器控制语句](#编译器控制语句)
+    - [声明](#声明)
+        - [常见的声明关键词](#常见的声明关键词)
+    - [特性](#特性)
+        - [声明特性](#声明特性)
+        - [类型特性](#类型特性)
+    - [模式](#模式)
+        - [通配符模式](#通配符模式)
+        - [标识符模式](#标识符模式)
+        - [值绑定模式](#值绑定模式)
+        - [元组模式](#元组模式)
+        - [枚举用例模式](#枚举用例模式)
+        - [可选模式](#可选模式)
+        - [表达式模式](#表达式模式)
+        - [类型转换模式](#类型转换模式)
+    - [Swift 使用 Tips](#swift-使用-tips)
+        - [Swift 中的良好编程风格](#swift-中的良好编程风格)
+        - [Swift 中的宏定义](#swift-中的宏定义)
+        - [NSRange 和 Range 的互转](#nsrange-和-range-的互转)
+        - [`substring` 方法/求子串的使用](#substring-方法求子串的使用)
+    - [Swift和Objective-C对比](#swift和objective-c对比)
+        - [两种语言的区别](#两种语言的区别)
+        - [两种语言的混编](#两种语言的混编)
 
 <!-- /TOC -->
 
@@ -133,6 +138,9 @@
 
 使用关键字`let`声明常量,使用关键字`var`声明变量.  
 在一行中声明多个变量或者常量时,其间用逗号分隔.
+
+> 使用`let`定义的变量具有不变性。  
+针对值类型具有值的不变性，而对于引用类型值保证引用的不变性（不能给引用赋新值，但是引用可以所指的对象是可变的）。
 
 ### 类型标注
 
@@ -182,6 +190,15 @@ if let constantName = someOptional {
 使用全局函数`assert(_:_:)`来写断言,来断定一个条件为真.  
 使用`recondition(_:_:file:line:)`函数来写先决条件.
 
+使用`fatalError(_:file:line:)`函数用来表示致命错误的断言,且该断言在`Release`环境下也会生效.  
+该函数还可以用来加在方法中表示不希望别人随意调用,但是又不得不实现的方法.
+
+```swift
+required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+}
+```
+
 ## 基本运算符
 
 ### 赋值运算符
@@ -210,9 +227,15 @@ a != nil ? a! : b
 ### 区间运算符
 
 * 闭区间运算符(`a...b`)
+
+  只有闭合区间能够表达元素类型的最大值。
+
 * 半开区间运算符(`a..<b`)
+
+  只有半开范围能够表达空区间的概念（当范围的上下边界相等时）。
+
 * 单侧区间
-使区间尽量超一个方向发展.比如`names[2...]`和`names[...2]`.
+  使区间尽量超一个方向发展.比如`names[2...]`和`names[...2]`.
 
 ### 逻辑运算符
 
@@ -231,14 +254,41 @@ a != nil ? a! : b
 数组(`Array<Element>`),集合(`Set<Element>`)和字典(`Dictionary<Key, Value>`).
 
 集合中存储值必须都是可哈希的.
-> 集合是通过判断hash值是否相等去除重复值.  
-需要将自定义类型存储在`Set`中时,类型需要遵循`Hashable`协议.
+> 集合是通过判断hash值是否相等去除重复值。
+>
+> 需要将自定义类型存储在集合类型中时，类型需要遵循`Hashable`协议、还需要对`==`运算符进行重载。  
+自定义类型的内容改变后，其hash值就会发生改变。
+
+```swift
+// 自定义结构体Person
+struct Person {
+    var name: String
+    var zipCode: Int
+    var birthDay: Date
+}
+
+// 重载运算符==
+extension Person: Equatable {
+    static func ==(lhs: Person, rhs: Person) -> Bool {
+        return lhs.name == rhs.name && lhs.zipCode == rhs.zipCode && lhs.birthDay == rhs.birthDay
+    }
+}
+
+// 保证对象可哈希
+extension Person: Hashable {
+    var hashValue: Int {
+        // 使用异或计算hash值
+        // 自定义类型的内容改变后，其hash值就会发生改变
+        return name.hashValue ^ zipCode.hashValue ^ birthDay.hashValue
+    }
+}
+```
 
 常见的集合操作:
-* 使用`intersection(_:)`方法来创建一个只包含两个集合共有值的新集合.
+* 使用`intersection(_:)`（交集）方法来创建一个只包含两个集合共有值的新集合.
 * 使用`symmetricDifference(_:)`方法来创建一个只包含两个集合各自有的非共有值的新集合.
-* 使用`union(_:)`方法来创建一个包含两个集合所有值的新集合.
-* 使用`subtracting(_:)`方法来创建一个两个集合当中不包含某个集合值的新集合.
+* 使用`union(_:)`（并集）方法来创建一个包含两个集合所有值的新集合.
+* 使用`subtracting(_:)`（补集）方法来创建一个两个集合当中不包含某个集合值的新集合.
 * 使用`==`判断两个集合是否包含有相同的值.
 * 使用`isSubset(of:)`方法来确定一个集合的所有值是被某集合所包含.
 * 使用`isSuperset(of:)`方法来确定一个集合是否包含某个集合的所有值.
@@ -250,6 +300,8 @@ a != nil ? a! : b
 常见的流程控制语句包括:`while`循环和`for-in`循环,分支选择`if`,`guard`和`switch`语句,和流程跳转`break`和`continue`语句.
 
 可以使用`??`运算符为可选值提供默认值.
+
+在控制流语句中可以使用 where 语句和 let 语句。
 
 ### 循环遍历
 
@@ -587,8 +639,13 @@ enum CompassPoint {
 > * 子类如果需要重写父类方法,需要使用`override`关键字.
 
 恒等运算符:  
-等价于`===`,表示两个类类型(`class type`)的常量或者变量引用的是**同一个类实例**  
-不等价于`!==`
+引用类型具有同一性（`identity`）。  
+可以使用`等价于`（`===`，不等价于`!==`）来判断两个类类型(`class type`)的常量或者变量引用的是否为**同一个类实例**。
+
+|`==`|`===`|
+|:------:|:------:|
+|结构相等|指针相等或引用相等|
+|两个变量的值是否相等|两个变量是否持有相同的引用|
 
 > * Swift中的`==`表示两个实例的值相等或者相同.  
 > * OC中的`==`用于判断是否值相等/为同一对象:对于基本类型比较的是*值*,对于对象类型比较的是*对象地址*(特指不支持运算符重载的语言).  
@@ -1017,7 +1074,7 @@ convenience init(parameters) {
 2. `便利构造器`必须调用同类中定义的其它构造器  
 3. `便利构造器`必须最终导致一个`指定构造器`被调用  
 
-* `指定构造器`必须总是**向上代理**  
+* `指定构造器`必须总是**向上代理**
 * `便利构造器`必须总是**横向代理**
 
 ![类的构造器对比](https://quxiaolei.github.io/imgs/initializerDelegation.png)
@@ -1359,7 +1416,8 @@ lazy var someClosure: (Int, String) -> String = {
 }
 ```
 
-[自动引用计数](http://wiki.jikexueyuan.com/project/swift/chapter2/16_Automatic_Reference_Counting.html)
+* [Strong Reference Cycles Between Class Instances & Strong Reference Cycles for Closures](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID51)
+* [自动引用计数](http://wiki.jikexueyuan.com/project/swift/chapter2/16_Automatic_Reference_Counting.html)
 
 ## 可选链式调用
 
@@ -2264,7 +2322,11 @@ if #available(平台名称 版本, ..., *) {
     如果 API 可用，则执行这部分语句    
 } else {    
     如果 API 不可用，则执行这部分语句
-}    
+}
+// 表示此方法仅在iOS 11及其以后的系统可用
+@available(iOS 11.0, *)
+func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+}
 ```
 
 ## 声明
@@ -2377,9 +2439,108 @@ is 类型
 模式 as 类型
 ```
 
+## Swift 使用 Tips
+
+### Swift 中的良好编程风格
+
+- API 命名要清晰
+- 尽量使用类型推断来提高代码的可读性，在存在歧义或者进行定义时不要使用类型推断（比如 func 需要显式的指定返回类型）
+- 优先使用结构体，只在确实需要使用到类特性或者引用语义时才使用类
+- 在设计的类不需要被继承时，将他们标记为 final
+- 尽量使用尾随闭包，除非闭包后立即跟随左括号
+- 使用 guard 来提早退出方法
+- 避免对可选值进行强制解包和隐式强制解包
+- 建议使用 let 来声明不可改变的变量，而使用函数将可变的部分封装，来隔离可变变量的副作用
+- 尽量使用类型和协议的扩展来替代全局函数
+
+### Swift 中的宏定义
+
+由于命名空间的缘故，Swift 中是不能使用宏定义的。但是可以使用其他方法达到宏定义的目的。
+
+* 没有参数的宏定义
+
+  将不需要参数的宏定义为 let 常量。
+
+* 接收参数的宏定义
+
+  将需要参数的宏定义为函数。
+
+```swift
+// 使用let常量定义无参数的宏定义
+let kScreenHeight = UIScreen.main.bounds.height
+let kScreenWidth = UIScreen.main.bounds.width
+
+// 使用函数定义有参数的宏定义
+func KRGBColor(_ red:CGFloat, green:CGFloat, blue:CGFloat) -> UIColor {
+    return UIColor.init(red:red , green: green, blue: blue, alpha: 1.0)
+}
+func KRandomColor() -> UIColor {
+    return KRGBColor(CGFloat(Double(exactly: arc4random_uniform(256))!/255.0),
+                     green: CGFloat(Double(exactly: arc4random_uniform(256))!/255.0),
+                     blue: CGFloat(Double(exactly: arc4random_uniform(256))!/255.0))
+}
+```
+
+参考资料:[swift中的宏定义](http://www.jianshu.com/p/5f5f7c4e1dc0)
+
+### NSRange 和 Range 的互转
+
+```swift
+// Swift 4.0
+
+// NSRange -> Range
+let range = Range(nsrange, in: str)
+
+// Range -> NSRange
+let nsrange = NSRange(range!, in: str)
+
+// Swift 3.0
+extension String {
+    func toNSRange(_ range: Range<String.Index>) -> NSRange {
+        guard let from = range.lowerBound.samePosition(in: utf16), let to = range.upperBound.samePosition(in: utf16) else {
+            return NSMakeRange(0, 0)
+        }
+        return NSMakeRange(utf16.distance(from: utf16.startIndex, to: from), utf16.distance(from: from, to: to))
+    }
+    func toRange(_ range: NSRange) -> Range<String.Index>? {
+        guard let from16 = utf16.index(utf16.startIndex, offsetBy: range.location, limitedBy: utf16.endIndex) else {
+            return nil
+        }
+        guard let to16 = utf16.index(from16, offsetBy: range.length, limitedBy: utf16.endIndex) else {
+            return nil
+        }
+        guard let from = String.Index(from16, within: self) else {
+            return nil
+        }
+        guard let to = String.Index(to16, within: self) else {
+            return nil
+        }
+        return from ..< to
+    }
+}
+```
+
+[Methods to convert between Swift string ranges (Range<String.Index>) and NSString ranges (NSRange)](https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index/30404532#30404532)
+
+### `substring` 方法/求子串的使用
+
+```swift
+// modelString.substring(with: range)
+// 'substring(with:)' is deprecated: Please use String slicing subscript.
+
+// Substring
+let newStr = str[..<index]
+// String
+let newStr = String(str[..<index])
+```
+
+[How can I use String slicing subscripts in Swift 4?](https://stackoverflow.com/a/45562735/9147670)
+
 ## Swift和Objective-C对比
 
 ### 两种语言的区别
+
+// TODO: 区别
 
 ### 两种语言的混编
 
@@ -2395,7 +2556,6 @@ is 类型
 
 参考资料:
 
-
 [Objective-C Mix Swift Configuration：混编设置](https://www.jianshu.com/p/bc47287f2c30)
 
 [Swift与C语言指针友好合作](http://wiki.jikexueyuan.com/project/swift/chapter4/04_Interacting_with_C_Pointers.html)
@@ -2403,3 +2563,7 @@ is 类型
 [The Swift Programming Language 中文版(Swift 3.0)](http://wiki.jikexueyuan.com/project/swift/)
 
 [Swift 编程语言(Swift 4.0)](https://www.cnswift.org/about-swift)
+
+---
+
+[⬆️ 回到顶部 ⬆️](#Swift初窥)
