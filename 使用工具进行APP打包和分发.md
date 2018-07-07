@@ -101,6 +101,11 @@ ${altoolpath} --upload-app -f ${file} -u ${username} [-p ${password}]
 > alias altool="/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool"
 > source ~/.bash_profile
 > ```
+> 也可以建立 altool 命令的软链接：
+>
+> ```sh
+> ln -s /Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool altool
+> ```
 
 还可以使用命令行上传至蒲公英和fir.im平台.
 
