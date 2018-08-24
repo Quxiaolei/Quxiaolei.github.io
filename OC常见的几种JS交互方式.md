@@ -1,18 +1,55 @@
-# OC常见的几种JS交互方式
+# OC 常见的几种 JS 交互方式
+
+[⬅️ Back](./)
+
 <!-- TOC -->
 
-- [OC常见的几种JS交互方式](#oc常见的几种js交互方式)
-    - [`UIWebView`的JS交互方式](#uiwebview的js交互方式)
-        - [使用`stringByEvaluatingJavaScriptFromString`方法](#使用stringbyevaluatingjavascriptfromstring方法)
-        - [使用`JavaScriptCore`类库方法进行OC与JS之间交互](#使用javascriptcore类库方法进行oc与js之间交互)
-        - [伪JS交互方式](#伪js交互方式)
-    - [`WKWebView`](#wkwebview)
-        - [`WKWebView`的JS交互方式](#wkwebview的js交互方式)
-    - [Cordova基础](#cordova基础)
+- [OC 常见的几种 JS 交互方式](#oc-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D-js-%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F)
+    - [JavaScriptCore](#javascriptcore)
+    - [UIWebView 的 JS 交互方式](#uiwebview-%E7%9A%84-js-%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F)
+        - [使用`stringByEvaluatingJavaScriptFromString`方法](#%E4%BD%BF%E7%94%A8stringbyevaluatingjavascriptfromstring%E6%96%B9%E6%B3%95)
+        - [使用`JavaScriptCore`类库方法进行OC与JS之间交互](#%E4%BD%BF%E7%94%A8javascriptcore%E7%B1%BB%E5%BA%93%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8Coc%E4%B8%8Ejs%E4%B9%8B%E9%97%B4%E4%BA%A4%E4%BA%92)
+        - [伪JS交互方式](#%E4%BC%AAjs%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F)
+    - [WKWebView](#wkwebview)
+        - [WKWebView 的 JS 交互方式](#wkwebview-%E7%9A%84-js-%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F)
+    - [Cordova 基础](#cordova-%E5%9F%BA%E7%A1%80)
 
 <!-- /TOC -->
 
-## `UIWebView`的JS交互方式
+![CSS3 Flexbox 口诀-justifyContent](https://quxiaolei.github.io/imgs/OC 与 JS 交互.jpg)
+
+## JavaScriptCore
+
+- JSContext：给 JavaScript 提供运行的上下文环境，通过`evaluateScript`方法就可以执行 JS 代码
+
+- JSValue：JavaScript 和 Objective-C 数据、方法的桥梁，封装了 JS 和 ObjC 中相对应的类型以及调用 API 等
+
+- JSManagedValue：管理数据和方法的类
+
+- JSVirtualMachine：JavaScript 执行的独立环境。
+
+  能够支持 JS 并发执行，管理 JS 和 OC 之间桥接对象的内存。
+
+  每一个 JSContext 都会属于一个 JSVirtualMachine。
+
+- JSExport 协议：通过协议将 OC 类中声明属性、类方法、实例方法等导出为 JavaScript 代码
+
+JSValue 与 JavaScript 的转换表：
+
+| Objective-C  | JavaScript          | JSValue convert                                              | JSValue constructor                                          |
+| ------------ | ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| nil          | undefined           |                                                              | valueWithUndefinedInContext                                  |
+| NSNull       | null                |                                                              | valueWithNullInContext                                       |
+| NSString     | string              | toString                                                     |                                                              |
+| NSNumber     | number<br />boolean | toNumber<br />toBool<br />toDouble<br />toInt32<br />toUInt32 | valueWithBool:inContext<br />valueWithDouble:inContext<br />valueWithInt32:inContext<br />valueWithUInt32:inContext |
+| NSDictionary | Object object       | toDictionary                                                 | valueWithNewObjectInContext                                  |
+| NSArray      | Array object        | toArray                                                      | valueWithNewArrayInContext                                   |
+| NSDate       | Date object         | toDate                                                       |                                                              |
+| NSBlock      | Function object     |                                                              |                                                              |
+| id           | Wrapper object      | toObject<br />toObjectOfClass                                | valueWithObject:inContext                                    |
+| Class        | Constructor object  |                                                              |                                                              |
+
+## UIWebView 的 JS 交互方式
 
 相关操作一般在`webViewDidFinishLoad`delegate方法中
 
@@ -346,7 +383,7 @@ webView的层级结构为:`webView`-> `webScrollView`-> `UIWebBrowserView`,最�
 
 [iOS下JS与OC互相调用（五）--UIWebView + WebViewJavascriptBridge](http://www.jianshu.com/p/2be213e3f673)
 
-## `WKWebView`
+## WKWebView
 
 含有`allowsBackForwardNavigationGestures`右滑返回手势,`estimatedProgress`预估进度,`allowsInlineMediaPlayback`是否允许内嵌视频播放等新属性
 
@@ -366,7 +403,7 @@ webView的层级结构为:`webView`-> `webScrollView`-> `UIWebBrowserView`,最�
 
 [iOS 8 WebKit框架概览（下）](http://www.cocoachina.com/ios/20150205/11108.html)
 
-### `WKWebView`的JS交互方式
+### WKWebView 的 JS 交互方式
 
 使用`WKWebView`时,需要手动导入`#import <WebKit/WebKit.h>`
 
@@ -500,7 +537,7 @@ OC调用JS:
 
 [iOS下JS与OC互相调用（六）--WKWebView + WebViewJavascriptBridge](http://www.jianshu.com/p/e951af9e5e74)
 
-## Cordova基础
+## Cordova 基础
 
 [iOS下JS与OC互相调用（七）--Cordova 基础](http://www.jianshu.com/p/78e486b31953)
 
@@ -519,3 +556,9 @@ OC调用JS:
 [网易新闻客户端iOS版本中新闻详情页（UIWebView）技术实现的分析](http://386502324.blog.163.com/blog/static/11346937720154293438399/)
 
 [WKWebView使用及注意点(keng)](http://www.jianshu.com/p/9513d101e582)
+
+---
+
+[⬅️ Back](./)
+
+[⬆️ 回到顶部 ⬆️](#OC 常见的几种 JS 交互方式)
