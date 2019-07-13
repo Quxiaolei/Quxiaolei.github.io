@@ -30,3 +30,7 @@
 
 * [GitHub Pages](https://github.com/Quxiaolei)
 * Email:<xiaolei.qu@hotmail.com>
+
+## 我的朋友
+
+- [Chinsyo _ 晨晓](https://chinsyo.com/)

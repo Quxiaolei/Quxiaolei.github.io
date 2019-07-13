@@ -2,7 +2,19 @@
 
 [⬅️ Back](./)
 
-[TOC]
+<!-- TOC -->
+- [Git 常用命令总结](#git-常用命令总结)
+    - [Git 理论基础](#git-理论基础)
+      - [工作区](#工作区)
+      - [Git config](#git-config)
+    - [Git 基础](#git-基础)
+      - [仓库初始](#仓库初始)
+      - [仓库状态](#仓库状态)
+      - [修改管理](#修改管理)
+      - [远程仓库](#远程仓库)
+    - [参考资料](#参考资料)
+
+<!-- /TOC -->
 
 ## Git 理论基础
 
@@ -110,7 +122,6 @@ cat .gitignore
 ## 参考资料
 
 - [GIT CHEAT SHEET](./resources/git-cheatsheet.pdf)
-
 - [Git教程 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [Git的奇技淫巧](https://github.com/521xueweihan/git-tips)
 - [git - the simple guide - no deep shit!](http://rogerdudler.github.io/git-guide/index.zh.html)
@@ -119,4 +130,4 @@ cat .gitignore
 
 [⬅️ Back](./)
 
-[⬆️ 回到顶部 ⬆️](#Git常用命令总结)
+[⬆️ 回到顶部 ⬆️](#git-常用命令总结)
