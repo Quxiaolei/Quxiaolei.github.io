@@ -4,6 +4,7 @@
 
 1. [Swift初窥](/Swift初窥.md)
 1. [RN学习总结](/RN学习总结.md)
+1. [Python基础入门](/Python基础入门.md)
 1. [代码的坏味道](/代码的坏味道.md)
 1. [使用工具进行APP打包和分发](/使用工具进行APP打包和分发.md)
 
@@ -28,3 +29,7 @@
 
 * [GitHub Pages](https://github.com/Quxiaolei)
 * Email:<xiaolei.qu@hotmail.com>
+
+## 我的朋友
+
+- [Chinsyo _ 晨晓](https://chinsyo.com/)
